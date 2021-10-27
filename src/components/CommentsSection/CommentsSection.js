@@ -1,5 +1,5 @@
-import Comment from "./Comment";
-import data from "../data/video-details.json";
+import Comment from "../Comment/Comment";
+import data from "../../data/video-details.json";
 export default function CommentsSection() {
   return (
     <div className="commentSection">

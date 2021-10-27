@@ -1,0 +1,19 @@
+.next-video {
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  &__image {
+    width: 7rem;
+    height: 80%;
+    border-radius: 10px;
+  }
+  &__details {
+    width: 150px;
+    height: 80%;
+  }
+  &__title,
+  &__channel {
+    text-align: left;
+    margin: 0;
+  }
+}

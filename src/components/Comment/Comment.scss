@@ -1,0 +1,24 @@
+.comment {
+  display: flex;
+  margin: 0 1rem;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  &__profile-pic {
+    margin-top: 1.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: gray;
+  }
+  &__text {
+    width: 85%;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__comment {
+    text-align: left;
+    margin-top: 0;
+  }
+}
