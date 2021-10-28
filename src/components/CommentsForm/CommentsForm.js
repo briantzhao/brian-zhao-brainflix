@@ -10,11 +10,13 @@ export default function CommentsForm() {
         <ProfilePic />
       </div>
       <section className="comment-form__text">
-        <h3 className="comment-form__title">JOIN THE CONVERSATION</h3>
-        <textarea
-          className="comment-form__input"
-          placeholder="Add a new comment"
-        ></textarea>
+        <label className="comment-form__title">
+          JOIN THE CONVERSATION
+          <textarea
+            className="comment-form__input"
+            placeholder="Add a new comment"
+          ></textarea>
+        </label>
         <Button icon={addComment} text="COMMENT" />
       </section>
     </form>

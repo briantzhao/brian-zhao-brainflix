@@ -1,20 +1,19 @@
 import VideoTitle from "../VideoTitle/VideoTitle";
 import VideoDetails from "../VideoDetails/VideoDetails";
-import data from "../../data/video-details.json";
 import "./VideoDesc.scss";
-export default function VideoDesc() {
+export default function VideoDesc(props) {
   return (
     <div className="video-desc">
-      <VideoTitle text={data[0].title} />
+      <VideoTitle text={props.video.title} />
       <VideoDetails
-        channel={data[0].channel}
-        views={data[0].views}
-        timestamp={data[0].timestamp}
-        likes={data[0].likes}
+        channel={props.video.channel}
+        views={props.video.views}
+        timestamp={props.video.timestamp}
+        likes={props.video.likes}
       />
-      <p class="video-desc__description">{data[0].description}</p>
+      <p class="video-desc__description">{props.video.description}</p>
       <h3 className="video-desc__comments">
-        {data[0].comments.length} Comments
+        {props.video.comments.length} Comments
       </h3>
     </div>
   );

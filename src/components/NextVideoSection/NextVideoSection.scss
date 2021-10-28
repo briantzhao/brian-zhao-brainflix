@@ -1,5 +1,10 @@
+@use "../../styles/partials/mixins" as *;
 .next-video-section {
   margin: 0 1rem;
+  @include desktop {
+    border-left: 1px solid gray;
+    padding-left: 1rem;
+  }
   &__title {
     text-align: left;
   }

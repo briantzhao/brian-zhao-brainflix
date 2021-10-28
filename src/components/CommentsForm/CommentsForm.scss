@@ -1,14 +1,33 @@
+@use "../../styles/partials/mixins" as *;
+
 .comment-form {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid gray;
-  padding-bottom: 1rem;
   margin: 0 1rem;
+  @include desktop {
+    border-bottom: 0;
+  }
   &__profile {
-    padding-top: 4rem;
+    padding-top: 1.5rem;
   }
   &__text {
     width: 85%;
+    padding-bottom: 1rem;
+    @include tablet {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__title {
+    display: block;
+    text-align: left;
+    @include tablet {
+      margin-left: 2rem;
+      width: 60%;
+    }
   }
   &__input {
     width: 85%;
@@ -16,5 +35,9 @@
     border-radius: 5px;
     resize: none;
     padding: 1rem;
+    @include tablet {
+      height: 1.5rem;
+      width: 100%;
+    }
   }
 }

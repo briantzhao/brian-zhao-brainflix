@@ -1,15 +1,24 @@
+@use "../../styles/partials/mixins" as *;
+
 .next-video {
   height: 8rem;
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
   &__image {
     width: 7rem;
     height: 80%;
     border-radius: 10px;
   }
   &__details {
-    width: 150px;
+    width: 9rem;
     height: 80%;
+    @include tablet {
+      width: 14rem;
+    }
   }
   &__title,
   &__channel {

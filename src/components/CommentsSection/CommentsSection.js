@@ -1,9 +1,8 @@
 import Comment from "../Comment/Comment";
-import data from "../../data/video-details.json";
-export default function CommentsSection() {
+export default function CommentsSection(props) {
   return (
     <div className="commentSection">
-      {data[0].comments.map((comment) => {
+      {props.video.comments.map((comment) => {
         return (
           <Comment
             name={comment.name}

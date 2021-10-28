@@ -1,11 +1,36 @@
+@use "../../styles/partials/mixins" as *;
 .video-details {
   display: flex;
-  justify-content: space-between;
+  gap: 2rem;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
+  @include tablet {
+    border-top: 0px;
+  }
   &__header,
   &__stats {
     display: flex;
     flex-direction: column;
+    @include tablet {
+      width: 50%;
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+  &__stats {
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+  &__channel,
+  &__timestamp,
+  &__views,
+  &__likes {
+    margin: 0.5rem 0;
+    text-align: left;
+  }
+  &__views-icon,
+  &__likes-icon {
+    margin-right: 0.5rem;
   }
 }

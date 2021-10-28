@@ -2,7 +2,12 @@ import "./NextVideo.scss";
 
 export default function NextVideo(props) {
   return (
-    <div className="next-video">
+    <div
+      className="next-video"
+      onClick={() => {
+        props.handleClick(props.title);
+      }}
+    >
       <img
         className="next-video__image"
         src={props.image}

@@ -1,0 +1,6 @@
+@use "../../styles/partials/_mixins.scss" as *;
+.logo {
+  @include tablet {
+    padding-right: 5rem;
+  }
+}

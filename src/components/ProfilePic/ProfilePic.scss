@@ -1,6 +1,15 @@
+@use "../../styles/partials/_mixins.scss" as *;
+
 .profile-pic {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  background-size: cover;
+  object-fit: cover;
+  object-position: left;
+  @include tablet {
+    order: 1;
+    height: 3.25rem;
+    width: 3.25rem;
+    margin-right: 0;
+  }
 }

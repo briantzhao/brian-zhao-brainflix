@@ -11,8 +11,8 @@ export default function Header() {
       <div className="header__style">
         <SearchBar />
         <ProfilePic />
+        <Button icon={icon} text="UPLOAD" />
       </div>
-      <Button icon={icon} text="UPLOAD" />
     </header>
   );
 }

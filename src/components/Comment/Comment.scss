@@ -1,17 +1,30 @@
+@use "../../styles/partials/_typography.scss" as *;
+@use "../../styles/partials/mixins" as *;
 .comment {
   display: flex;
   margin: 0 1rem;
   justify-content: space-between;
   border-bottom: 1px solid gray;
+  @include desktop {
+    border-bottom: 0;
+    border-top: 1px solid gray;
+  }
   &__profile-pic {
     margin-top: 1.5rem;
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 50%;
     background-color: gray;
+    @include tablet {
+      width: 3.25rem;
+      height: 3.25rem;
+    }
   }
   &__text {
     width: 85%;
+    @include tablet {
+      width: 89%;
+    }
   }
   &__header {
     display: flex;
@@ -20,5 +33,6 @@
   &__comment {
     text-align: left;
     margin-top: 0;
+    font-family: "Avenir Next Regular";
   }
 }
