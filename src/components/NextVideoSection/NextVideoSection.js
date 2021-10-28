@@ -4,7 +4,7 @@ import "./NextVideoSection.scss";
 export default function NextVideoSection(props) {
   return (
     <div className="next-video-section">
-      <h4 className="next-video-section__title">NEXT VIDEOS</h4>
+      <h2 className="next-video-section__title">NEXT VIDEOS</h2>
       {props.videos.map((video) => {
         if (video.title !== props.featured.title) {
           return (
