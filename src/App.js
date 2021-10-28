@@ -14,7 +14,7 @@ class App extends Component {
     featured: data[0],
   };
   handleClick = (title) => {
-    const videosCopy = this.state.videos;
+    const videosCopy = [...this.state.videos];
     const index = videosCopy.findIndex((video) => {
       return video.title === title;
     });

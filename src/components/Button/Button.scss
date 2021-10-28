@@ -1,19 +1,26 @@
-@use "../../styles/partials/_typography.scss" as *;
 @use "../../styles/partials/_mixins.scss" as *;
+@use "../../styles/partials/variables" as *;
 .button {
   position: relative;
-  padding: 1rem;
-  background-color: lightblue;
-  color: white;
+  background-color: $blue;
+  color: $white;
   width: 100%;
-  border-radius: 5px;
+  height: 2.5rem;
+  border-radius: 4px;
   margin-top: 1rem;
+  vertical-align: middle;
+  &:hover {
+    background-color: $darkblue;
+  }
   &__image {
     position: absolute;
     left: 1rem;
+    @include tablet {
+      left: 0.5rem;
+    }
   }
   @include tablet {
-    width: 10rem;
-    height: 3.25rem;
+    width: 9.375rem;
+    padding: auto 2rem;
   }
 }

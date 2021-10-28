@@ -1,9 +1,12 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .next-video-section {
   margin: 0 1rem;
   @include desktop {
-    border-left: 1px solid gray;
+    border-left: 1px solid $mercury;
     padding-left: 1rem;
+    margin: 0;
   }
   &__title {
     text-align: left;

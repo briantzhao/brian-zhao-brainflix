@@ -1,7 +1,7 @@
 import Comment from "../Comment/Comment";
 export default function CommentsSection(props) {
   return (
-    <div className="commentSection">
+    <section className="commentSection">
       {props.video.comments.map((comment) => {
         return (
           <Comment
@@ -11,6 +11,6 @@ export default function CommentsSection(props) {
           />
         );
       })}
-    </div>
+    </section>
   );
 }

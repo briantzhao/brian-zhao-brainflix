@@ -16,7 +16,7 @@ export default function VideoDetails(props) {
   };
 
   return (
-    <div className="video-details">
+    <article className="video-details">
       <div className="video-details__header">
         <h3 className="video-details__channel">By {props.channel}</h3>
         <h4 className="video-details__timestamp">
@@ -41,6 +41,6 @@ export default function VideoDetails(props) {
           {props.likes}
         </h4>
       </div>
-    </div>
+    </article>
   );
 }

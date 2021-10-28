@@ -3,7 +3,7 @@ import VideoDetails from "../VideoDetails/VideoDetails";
 import "./VideoDesc.scss";
 export default function VideoDesc(props) {
   return (
-    <div className="video-desc">
+    <section className="video-desc">
       <VideoTitle text={props.video.title} />
       <VideoDetails
         channel={props.video.channel}
@@ -15,6 +15,6 @@ export default function VideoDesc(props) {
       <h3 className="video-desc__comments">
         {props.video.comments.length} Comments
       </h3>
-    </div>
+    </section>
   );
 }

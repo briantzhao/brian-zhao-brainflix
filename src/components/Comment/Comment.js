@@ -13,15 +13,15 @@ export default function Comment(props) {
     return `${newMonth}/${newDay}/${newYear}`;
   };
   return (
-    <div className="comment">
+    <article className="comment">
       <div className="comment__profile-pic"></div>
-      <article className="comment__text">
+      <section className="comment__text">
         <div className="comment__header">
           <h3 className="comment__user">{props.name}</h3>
           <h4 className="comment__timestamp">{formatDate(props.timestamp)}</h4>
         </div>
         <p className="comment__comment">{props.comment}</p>
-      </article>
-    </div>
+      </section>
+    </article>
   );
 }

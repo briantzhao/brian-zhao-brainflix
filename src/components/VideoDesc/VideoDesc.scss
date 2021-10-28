@@ -1,5 +1,10 @@
+@use "../../styles/partials/mixins" as *;
+
 .video-desc {
   margin: 0 1rem;
+  @include desktop {
+    margin: 0;
+  }
   &__description {
     text-align: left;
   }
