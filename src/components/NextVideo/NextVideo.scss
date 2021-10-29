@@ -27,6 +27,50 @@
       width: 58%;
     }
   }
+  //ellipses code
+  &__title {
+    //webkit ellipses attempt
+    // display: -webkit-box;
+    // -webkit-line-clamp: 2;
+    // -webkit-box-orient: vertical;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // max-width: 80%;
+    &__les {
+      @include tablet {
+        display: none;
+      }
+      &--tablet {
+        display: none;
+        @include tablet {
+          display: block;
+        }
+      }
+    }
+    &__travel {
+      @include tablet {
+        display: none;
+      }
+      &--tablet {
+        display: none;
+        @include tablet {
+          display: block;
+        }
+      }
+    }
+    &__romantic {
+      @include tablet {
+        display: none;
+      }
+      &--tablet {
+        display: none;
+        @include tablet {
+          display: block;
+        }
+      }
+    }
+  }
+  //ellipses code end
   &__title,
   &__channel {
     text-align: left;

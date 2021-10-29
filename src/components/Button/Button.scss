@@ -8,8 +8,13 @@
   height: 2.5rem;
   border-radius: 4px;
   vertical-align: middle;
+  margin-top: 1rem;
+  @include tablet {
+    margin-top: 0;
+  }
   &:hover {
     background-color: $darkblue;
+    cursor: pointer;
   }
   &__image {
     position: absolute;
