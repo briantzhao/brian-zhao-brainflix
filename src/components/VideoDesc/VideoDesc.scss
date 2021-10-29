@@ -10,8 +10,10 @@
   }
   &__description {
     text-align: left;
+    font-size: 0.805rem;
     @include tablet {
       width: 98%;
+      font-size: 0.875rem;
     }
     @include desktop {
       width: auto;
