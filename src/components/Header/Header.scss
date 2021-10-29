@@ -1,11 +1,15 @@
 @use "../../styles/partials/_mixins.scss" as *;
 
 .header {
-  padding: 1rem;
+  margin: 1rem;
   @include tablet {
     display: flex;
-    padding: 1rem 2rem;
+    margin: 1.5rem 2.25rem;
     justify-content: space-between;
+  }
+  @include desktop {
+    width: 63.75rem;
+    margin: 1.5rem auto;
   }
   &__style {
     display: flex;
@@ -16,9 +20,9 @@
       display: flex;
       gap: 1rem;
       align-items: center;
-      & > * {
-        margin-top: 0;
-      }
+    }
+    @include desktop {
+      gap: 2.75rem;
     }
   }
 }

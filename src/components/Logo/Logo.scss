@@ -1,6 +1,5 @@
 @use "../../styles/partials/_mixins.scss" as *;
 .logo {
-  @include tablet {
-    padding-right: 5rem;
-  }
+  max-height: 1.5625rem;
+  max-width: 7.5rem;
 }

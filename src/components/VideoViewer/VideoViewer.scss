@@ -1,5 +1,18 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .video-viewer {
-  width: 100%;
+  background-color: $darkblack;
+  &__video {
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+    @include tablet {
+      margin: 0 2.25rem;
+      width: calc(100% - 4.5rem);
+    }
+    @include desktop {
+      width: 53rem;
+      margin: 0 auto;
+    }
+  }
 }

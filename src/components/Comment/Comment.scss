@@ -2,38 +2,56 @@
 @use "../../styles/partials/mixins" as *;
 .comment {
   display: flex;
-  margin: 0 1rem;
   justify-content: space-between;
-  border-bottom: 1px solid $mercury;
+  border-top: 1px solid $mercury;
+  margin-right: 1rem;
+  padding: 1rem 0;
+  @include tablet {
+    margin-right: 0;
+    padding: 1.5rem 0;
+  }
   @include desktop {
-    border-bottom: 0;
-    border-top: 1px solid $mercury;
-    margin: 0;
+    justify-content: flex-start;
+    gap: 2rem;
   }
   &__profile-pic {
-    margin-top: 1.5rem;
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 50%;
     background-color: $mercury;
     @include tablet {
-      width: 3.25rem;
-      height: 3.25rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    @include desktop {
+      margin-left: 0.75rem;
     }
   }
   &__text {
-    width: 85%;
+    width: 82%;
     @include tablet {
-      width: 89%;
+      width: 91%;
+    }
+    @include desktop {
+      width: 85%;
+      margin-right: 1.5rem;
     }
   }
   &__header {
     display: flex;
     justify-content: space-between;
   }
+  &__user,
+  &__timestamp {
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
   &__comment {
     text-align: left;
     margin-top: 0;
-    font-family: "Avenir Next Regular";
+    margin-bottom: 0;
   }
 }

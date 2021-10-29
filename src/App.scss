@@ -19,7 +19,7 @@ h1 {
 h2 {
   font-size: 0.75rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 400;
   color: $silver;
 }
 
@@ -40,6 +40,7 @@ h3 {
 
 h4 {
   color: $silver;
+  font-weight: 400;
 }
 p {
   font-size: 0.8125rem;
@@ -55,14 +56,24 @@ label,
 button {
   font-size: 0.75rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .App {
   text-align: center;
   &__main-section {
+    @include tablet {
+      margin: 0 2.25rem;
+    }
     @include desktop {
       display: flex;
+      width: 63.75rem;
+      margin: 0 auto;
+    }
+  }
+  &__video-details {
+    @include desktop {
+      width: 95%;
     }
   }
 }

@@ -1,23 +1,30 @@
 @use "../../styles/partials/mixins" as *;
 
 .next-video {
-  height: 8rem;
+  margin-bottom: 1rem;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  @include tablet {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
 
   &:hover {
     cursor: pointer;
   }
   &__image {
-    width: 7rem;
-    height: 80%;
-    border-radius: 10px;
+    width: 6.25rem;
+    height: 4rem;
+    border-radius: 4px;
   }
   &__details {
-    width: 9rem;
+    width: 61%;
     height: 80%;
     @include tablet {
-      width: 14rem;
+      width: 26.5%;
+    }
+    @include desktop {
+      width: 58%;
     }
   }
   &__title,

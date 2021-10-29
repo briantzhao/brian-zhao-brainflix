@@ -1,3 +1,7 @@
+@use "../../styles/partials/mixins" as *;
 .video-title {
   text-align: left;
+  @include tablet {
+    margin-bottom: 0;
+  }
 }

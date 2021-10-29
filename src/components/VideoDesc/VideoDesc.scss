@@ -2,11 +2,22 @@
 
 .video-desc {
   margin: 0 1rem;
+  @include tablet {
+    margin: 0;
+  }
   @include desktop {
     margin: 0;
   }
   &__description {
     text-align: left;
+    @include tablet {
+      width: 98%;
+    }
+    @include desktop {
+      width: auto;
+      margin-right: 1.5rem;
+      font-size: 0.86rem;
+    }
   }
   &__comments {
     text-align: left;

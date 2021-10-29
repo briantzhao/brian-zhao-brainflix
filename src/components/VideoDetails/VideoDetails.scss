@@ -3,11 +3,14 @@
 
 .video-details {
   display: flex;
-  gap: 2rem;
+  gap: 20%;
   border-top: 1px solid $mercury;
   border-bottom: 1px solid $mercury;
   @include tablet {
     border-top: 0px;
+  }
+  @include desktop {
+    padding-right: 1.5rem;
   }
   &__header,
   &__stats {
