@@ -13,10 +13,10 @@ class App extends Component {
     videos: data,
     featured: data[0],
   };
-  handleClick = (title) => {
+  handleClick = (videoObj) => {
     const videosCopy = [...this.state.videos];
     const index = videosCopy.findIndex((video) => {
-      return video.title === title;
+      return video.id === videoObj.id;
     });
     this.setState({ featured: videosCopy[index] });
   };

@@ -9,9 +9,8 @@ export default function NextVideoSection(props) {
         .map((video) => {
           return (
             <NextVideo
-              image={video.image}
-              title={video.title}
-              channel={video.channel}
+              key={video.id}
+              video={video}
               handleClick={props.handleClick}
             />
           );

@@ -17,10 +17,12 @@ export default function Comment(props) {
       <div className="comment__profile-pic"></div>
       <section className="comment__text">
         <div className="comment__header">
-          <h3 className="comment__user">{props.name}</h3>
-          <h4 className="comment__timestamp">{formatDate(props.timestamp)}</h4>
+          <h3 className="comment__user">{props.comment.name}</h3>
+          <h4 className="comment__timestamp">
+            {formatDate(props.comment.timestamp)}
+          </h4>
         </div>
-        <p className="comment__comment">{props.comment}</p>
+        <p className="comment__comment">{props.comment.comment}</p>
       </section>
     </article>
   );
