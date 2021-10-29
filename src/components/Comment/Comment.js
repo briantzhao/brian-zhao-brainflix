@@ -1,6 +1,7 @@
 import "./Comment.scss";
 import { formatDate, deepDive } from "../../utils/FormatDate";
 
+//passed individual comment objects as props
 export default function Comment(props) {
   return (
     <li className="comment">

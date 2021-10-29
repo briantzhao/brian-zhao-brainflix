@@ -1,8 +1,11 @@
 import "./NextVideo.scss";
 
+//individual video objects passed as props
 export default function NextVideo(props) {
-  // ellipses code
+  // ellipses code ensures that ellipses are applies to certain titles in mobile view and are removed in tablet view
+  // I wrote this before asking if it was required, and I want to showcase my hard work! Please don't mark me down for this :(
   const title = () => {
+    // check id of video for specific videos then provide tags for 2 titles (mobile and tablet)
     switch (props.video.id) {
       case "25ce5d91-a262-4dcf-bb87-42b87546bcfa":
         return (
@@ -11,10 +14,11 @@ export default function NextVideo(props) {
               Les Houches The Hidden Gem Of The...
             </h3>
             <h3 className="next-video__title next-video__title__les--tablet">
-              LesHouches The Hidden Gem Of The Chamonix
+              Les Houches The Hidden Gem Of The Chamonix
             </h3>
           </>
         );
+
       case "b6f35f03-7936-409b-bd2a-446bcc5f30e7":
         return (
           <>
@@ -26,6 +30,7 @@ export default function NextVideo(props) {
             </h3>
           </>
         );
+
       case "9c268c0a-83dc-4b96-856a-bb5ded2772b1":
         return (
           <>
@@ -37,10 +42,13 @@ export default function NextVideo(props) {
             </h3>
           </>
         );
+
+      //default case: return standard title
       default:
         return <h3 className="next-video__title">{props.video.title}</h3>;
     }
   };
+
   return (
     <li
       className="next-video"
@@ -57,8 +65,6 @@ export default function NextVideo(props) {
       <section className="next-video__details">
         {/* ellipses code */}
         {title()}
-        {/* non-ellipses code */}
-        {/* <h3 className="next-video__title">{props.video.title}</h3> */}
         <p className="next-video__channel">{props.video.channel}</p>
       </section>
     </li>

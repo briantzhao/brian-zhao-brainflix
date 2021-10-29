@@ -9,10 +9,13 @@ import { Component } from "react";
 import data from "./data/video-details.json";
 
 class App extends Component {
+  //videos holds array of video objects, featured holds the video displayed in the hero video section
   state = {
     videos: data,
     featured: data[0],
   };
+
+  //passed to side video elements, updates featured video when a side video element is clicked
   handleClick = (videoObj) => {
     const videosCopy = [...this.state.videos];
     const index = videosCopy.findIndex((video) => {
@@ -20,6 +23,7 @@ class App extends Component {
     });
     this.setState({ featured: videosCopy[index] });
   };
+
   render() {
     return (
       <div className="App">

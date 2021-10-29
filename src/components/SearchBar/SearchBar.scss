@@ -10,6 +10,7 @@
   background-color: $alabaster;
   color: $black;
   outline-color: $blue;
+
   @include tablet {
     width: 15rem;
     height: 2.5rem;

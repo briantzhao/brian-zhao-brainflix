@@ -1,5 +1,6 @@
 import "./Button.scss";
 
+//declared with icon and text as props
 export default function Button(props) {
   return (
     <button class="button">

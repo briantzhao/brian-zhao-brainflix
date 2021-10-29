@@ -1,6 +1,8 @@
 import VideoTitle from "../VideoTitle/VideoTitle";
 import VideoDetails from "../VideoDetails/VideoDetails";
 import "./VideoDesc.scss";
+
+//passed featured video object as props
 export default function VideoDesc(props) {
   return (
     <section className="video-desc">
