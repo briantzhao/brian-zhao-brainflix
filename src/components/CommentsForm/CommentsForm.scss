@@ -73,9 +73,13 @@
     resize: none;
     padding: 0.75rem;
     background-color: $alabaster;
-    color: $black;
-    outline-color: $blue;
     margin-top: 0.25rem;
+    color: $black;
+    outline: none;
+    border: 1px solid $mercury;
+    &:focus {
+      border: 2px solid $blue;
+    }
 
     @include tablet {
       height: 2.5rem;
