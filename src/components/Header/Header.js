@@ -8,12 +8,14 @@ import "./Header.scss";
 export default function Header() {
   return (
     <header className="header">
-      <Logo />
-      <div className="header__style">
-        <SearchBar />
-        <ProfilePic />
-        <Button icon={icon} text="UPLOAD" />
-      </div>
+      <nav className="header__nav">
+        <Logo />
+        <div className="header__style">
+          <SearchBar />
+          <ProfilePic />
+          <Button icon={icon} text="UPLOAD" />
+        </div>
+      </nav>
     </header>
   );
 }

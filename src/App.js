@@ -29,7 +29,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <VideoViewer video={this.state.featured} />
-        <div className="App__main-section">
+        <main className="App__main-section">
           <div className="App__video-details">
             <VideoDesc video={this.state.featured} />
             <CommentsForm />
@@ -40,7 +40,7 @@ class App extends Component {
             featured={this.state.featured}
             handleClick={this.handleClick}
           />
-        </div>
+        </main>
       </div>
     );
   }

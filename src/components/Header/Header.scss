@@ -1,17 +1,18 @@
 @use "../../styles/partials/_mixins.scss" as *;
 
 .header {
-  margin: 1rem;
-  @include tablet {
-    display: flex;
-    margin: 1.5rem 2.25rem;
-    justify-content: space-between;
+  &__nav {
+    margin: 1rem;
+    @include tablet {
+      display: flex;
+      margin: 1.5rem 2.25rem;
+      justify-content: space-between;
+    }
+    @include desktop {
+      width: 63.75rem;
+      margin: 1.5rem auto;
+    }
   }
-  @include desktop {
-    width: 63.75rem;
-    margin: 1.5rem auto;
-  }
-
   //div keeps logo separate from other elements
   &__style {
     display: flex;
