@@ -1,3 +1,19 @@
+# brian-zhao-brainflix
+
+# Description
+
+Sprint 1 The purpose of this project is to practice building a website using React, as well as practice passing props and maintaining state.
+
+## Usage
+
+To download this project and view it locally, run the following commands in your terminal:
+
+- `git clone git@github.com:briantzhao/brian-zhao-brainflix.git`
+- `cd brian-zhao-brainflix.git`
+- `code .`
+
+Then, follow instructions below.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
