@@ -20,9 +20,7 @@
     align-items: center;
     justify-content: space-between;
     @include tablet {
-      display: flex;
       gap: 1rem;
-      align-items: center;
     }
     @include desktop {
       gap: 2.75rem;
