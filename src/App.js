@@ -42,7 +42,14 @@ class App extends Component {
               />
             </Route>
             <Route path="/upload" component={UploadPage} />
-            <Redirect from="/upload-video" to="upload" />
+            <Redirect from="/upload-video" to="/upload" />
+            <Route path={`/:id`}>
+              <HomePage
+                featured={this.state.featured}
+                videos={this.state.videos}
+                handleClick={this.handleClick}
+              />
+            </Route>
             <Route component={NotFoundPage} />
           </Switch>
         </Router>

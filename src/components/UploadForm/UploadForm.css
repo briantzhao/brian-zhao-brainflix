@@ -1,0 +1,114 @@
+.upload-form {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+@media (min-width: 768px) {
+  .upload-form {
+    margin: 0;
+    align-items: flex-end;
+  }
+}
+@media (min-width: 1280px) {
+  .upload-form {
+    border-bottom: 0;
+  }
+}
+.upload-form__thumbnail__label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #afafaf;
+}
+@media (min-width: 768px) {
+  .upload-form__thumbnail__label {
+    margin-left: 1.5rem;
+    width: 70%;
+  }
+}
+@media (min-width: 1280px) {
+  .upload-form__thumbnail__label {
+    margin-left: 2rem;
+    width: 67%;
+  }
+}
+.upload-form__title {
+  min-width: 15rem;
+  max-width: 100%;
+  min-height: 2.25rem;
+  border-radius: 4px;
+  resize: none;
+  padding: 0.75rem;
+  background-color: #fafafa;
+  margin-top: 0.25rem;
+  color: #323232;
+  outline: none;
+  border: 1px solid #e1e1e1;
+}
+.upload-form__title:focus {
+  border: 2px solid #0095ff;
+}
+@media (min-width: 768px) {
+  .upload-form__title {
+    height: 2.5rem;
+    padding: 0.7rem;
+  }
+}
+.upload-form__title__label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #afafaf;
+}
+@media (min-width: 768px) {
+  .upload-form__title__label {
+    margin-left: 1.5rem;
+    width: 70%;
+  }
+}
+@media (min-width: 1280px) {
+  .upload-form__title__label {
+    margin-left: 2rem;
+    width: 67%;
+  }
+}
+.upload-form__description {
+  min-width: 15rem;
+  max-width: 100%;
+  min-height: 2.25rem;
+  border-radius: 4px;
+  resize: none;
+  padding: 0.75rem;
+  background-color: #fafafa;
+  margin-top: 0.25rem;
+  color: #323232;
+  outline: none;
+  border: 1px solid #e1e1e1;
+}
+.upload-form__description:focus {
+  border: 2px solid #0095ff;
+}
+@media (min-width: 768px) {
+  .upload-form__description {
+    height: 2.5rem;
+    padding: 0.7rem;
+  }
+}
+.upload-form__description__label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #afafaf;
+}
+@media (min-width: 768px) {
+  .upload-form__description__label {
+    margin-left: 1.5rem;
+    width: 70%;
+  }
+}
+@media (min-width: 1280px) {
+  .upload-form__description__label {
+    margin-left: 2rem;
+    width: 67%;
+  }
+}/*# sourceMappingURL=UploadForm.css.map */

@@ -1,0 +1,110 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.upload-form {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+
+  @include tablet {
+    margin: 0;
+    align-items: flex-end;
+  }
+
+  @include desktop {
+    border-bottom: 0;
+  }
+  &__thumbnail {
+    &__label {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      color: $silver;
+
+      @include tablet {
+        margin-left: 1.5rem;
+        width: 70%;
+      }
+
+      @include desktop {
+        margin-left: 2rem;
+        width: 67%;
+      }
+    }
+  }
+  &__title {
+    min-width: 15rem;
+    max-width: 100%;
+    min-height: 2.25rem;
+    border-radius: 4px;
+    resize: none;
+    padding: 0.75rem;
+    background-color: $alabaster;
+    margin-top: 0.25rem;
+    color: $black;
+    outline: none;
+    border: 1px solid $mercury;
+    &:focus {
+      border: 2px solid $blue;
+    }
+
+    @include tablet {
+      height: 2.5rem;
+      padding: 0.7rem;
+    }
+    &__label {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      color: $silver;
+
+      @include tablet {
+        margin-left: 1.5rem;
+        width: 70%;
+      }
+
+      @include desktop {
+        margin-left: 2rem;
+        width: 67%;
+      }
+    }
+  }
+  //input field is nested inside label (title)
+  &__description {
+    min-width: 15rem;
+    max-width: 100%;
+    min-height: 2.25rem;
+    border-radius: 4px;
+    resize: none;
+    padding: 0.75rem;
+    background-color: $alabaster;
+    margin-top: 0.25rem;
+    color: $black;
+    outline: none;
+    border: 1px solid $mercury;
+    &:focus {
+      border: 2px solid $blue;
+    }
+
+    @include tablet {
+      height: 2.5rem;
+      padding: 0.7rem;
+    }
+    &__label {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      color: $silver;
+
+      @include tablet {
+        margin-left: 1.5rem;
+        width: 70%;
+      }
+
+      @include desktop {
+        margin-left: 2rem;
+        width: 67%;
+      }
+    }
+  }
+}

@@ -2,13 +2,14 @@ import React from "react";
 import Button from "../Button/Button";
 import upload from "../../assets/icons/upload.svg";
 import { Link } from "react-router-dom";
+import "./UploadForm.scss";
 
 export default function UploadForm(props) {
   return (
     <form className="upload-form">
       <label className="upload-form__thumbnail__label">
         VIDEO THUMBNAIL
-        <img className="upload-form__thumbnail"></img>
+        <img className="upload-form__thumbnail" alt="video thumbnail"></img>
       </label>
       <label className="upload-form__title__label">
         TITLE YOUR VIDEO
