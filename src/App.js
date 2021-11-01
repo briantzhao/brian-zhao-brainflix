@@ -1,12 +1,16 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
-import VideoDesc from "./components/VideoDesc/VideoDesc";
-import VideoViewer from "./components/VideoViewer/VideoViewer";
-import CommentsForm from "./components/CommentsForm/CommentsForm";
-import CommentsSection from "./components/CommentsSection/CommentsSection";
-import NextVideoSection from "./components/NextVideoSection/NextVideoSection";
+import HomePage from "./pages/HomePage/HomePage";
+import UploadPage from "./pages/UploadPage/UploadPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { Component } from "react";
 import data from "./data/video-details.json";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 class App extends Component {
   //videos holds array of video objects, featured holds the video displayed in the hero video section
@@ -27,20 +31,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <VideoViewer video={this.state.featured} />
-        <main className="App__main-section">
-          <div className="App__video-details">
-            <VideoDesc video={this.state.featured} />
-            <CommentsForm />
-            <CommentsSection video={this.state.featured} />
-          </div>
-          <NextVideoSection
-            videos={this.state.videos}
-            featured={this.state.featured}
-            handleClick={this.handleClick}
-          />
-        </main>
+        <Router>
+          <Header />
+          <Switch>
+            <Route path="/" exact>
+              <HomePage
+                featured={this.state.featured}
+                videos={this.state.videos}
+                handleClick={this.handleClick}
+              />
+            </Route>
+            <Route path="/upload" component={UploadPage} />
+            <Redirect from="/upload-video" to="upload" />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Router>
       </div>
     );
   }

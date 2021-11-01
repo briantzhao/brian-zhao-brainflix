@@ -66,19 +66,4 @@ ul {
 
 .App {
   text-align: center;
-  &__main-section {
-    @include tablet {
-      margin: 0 2.25rem;
-    }
-    @include desktop {
-      display: flex;
-      width: 63.75rem;
-      margin: 0 auto;
-    }
-  }
-  &__video-details {
-    @include desktop {
-      width: 95%;
-    }
-  }
 }
