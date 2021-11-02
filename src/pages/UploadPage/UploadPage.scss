@@ -1,0 +1,18 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+.upload-page {
+  border-top: 1px solid $mercury;
+
+  &__styling {
+    margin: 0 1rem;
+    @include tablet {
+      margin: 0 2.25rem;
+      margin-top: 2.5rem;
+    }
+    @include desktop {
+      width: 63.75rem;
+      margin: 0 auto;
+      margin-top: 2.5rem;
+    }
+  }
+}
