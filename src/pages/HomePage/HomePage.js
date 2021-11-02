@@ -19,6 +19,7 @@ export default class HomePage extends Component {
   //   mockAPI.getVideos.then(videosData => {
   //     this.setState({videos: videosData, featured: videosData[0]})
   // })
+  // }
 
   componentDidUpdate(prevProps, prevState) {
     const prevVidId = prevProps.match.params.id;
@@ -32,7 +33,6 @@ export default class HomePage extends Component {
     }
   }
 
-  // }
   // //passed to side video elements, updates featured video when a side video element is clicked
   // handleClick = (videoObj) => {
   //   const videosCopy = [...this.state.videos];
