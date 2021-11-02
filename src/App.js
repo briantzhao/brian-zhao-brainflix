@@ -43,6 +43,7 @@ class App extends Component {
             </Route>
             <Route path="/upload" component={UploadPage} />
             <Redirect from="/upload-video" to="/upload" />
+            {/* route to return to homepage, but with the video id as url (when clicking on next videos) */}
             <Route path={`/:id`}>
               <HomePage
                 featured={this.state.featured}

@@ -13,6 +13,7 @@ export default function NextVideoSection(props) {
           .filter((video) => video.id !== props.featured.id)
           .map((video) => {
             return (
+              // add link to each video panel
               <Link to={`${video.id}`}>
                 <NextVideo
                   key={video.id}

@@ -8,6 +8,7 @@ import uploadThumb from "../../assets/images/upload.jpg";
 export default function UploadForm() {
   return (
     <form className="upload-form">
+      {/* article to separate input section from buttons */}
       <article className="upload-form__input">
         <label className="upload-form__thumbnail__label">
           VIDEO THUMBNAIL
@@ -17,6 +18,7 @@ export default function UploadForm() {
             alt="video thumbnail"
           ></img>
         </label>
+        {/* section to apply flex to text inputs for desktop view*/}
         <section className="upload-form__text">
           <label className="upload-form__title__label">
             TITLE YOUR VIDEO
@@ -35,6 +37,7 @@ export default function UploadForm() {
           </label>
         </section>
       </article>
+      {/* section to apply row reverse flexbox to buttons for tablet view*/}
       <section className="upload-form__buttons">
         <Link to="/">
           <Button icon={upload} text="PUBLISH" />

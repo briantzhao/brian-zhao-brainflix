@@ -3,6 +3,7 @@
 .upload-page {
   border-top: 1px solid $mercury;
 
+  //provides margin properties, while allowing border to span the width of page
   &__styling {
     margin: 0 1rem;
     @include tablet {
