@@ -1,6 +1,5 @@
 import NextVideo from "../NextVideo/NextVideo";
 import "./NextVideoSection.scss";
-import { Link } from "react-router-dom";
 
 //passed featured video object and video array as props
 export default function NextVideoSection(props) {
@@ -13,14 +12,12 @@ export default function NextVideoSection(props) {
           .filter((video) => video.id !== props.featured.id)
           .map((video) => {
             return (
-              // add link to each video panel
-              <Link to={`${video.id}`}>
-                <NextVideo
-                  key={video.id}
-                  video={video}
-                  handleClick={props.handleClick}
-                />
-              </Link>
+              // <NextVideo
+              //   key={video.id}
+              //   video={video}
+              //   handleClick={props.handleClick}
+              // />
+              <NextVideo key={video.id} video={video} />
             );
           })}
       </ul>

@@ -1,6 +1,5 @@
 @use "../../styles/partials/mixins" as *;
-
-.next-video {
+a {
   margin-bottom: 1rem;
   display: flex;
   gap: 0.75rem;
@@ -13,7 +12,8 @@
   &:hover {
     cursor: pointer;
   }
-
+}
+.next-video {
   &__image {
     width: 6.25rem;
     height: 4rem;

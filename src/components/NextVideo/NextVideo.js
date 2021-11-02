@@ -1,4 +1,5 @@
 import "./NextVideo.scss";
+import { Link } from "react-router-dom";
 
 //individual video objects passed as props
 export default function NextVideo(props) {
@@ -50,23 +51,27 @@ export default function NextVideo(props) {
   };
 
   return (
-    <li
-      className="next-video"
-      key={props.key}
-      onClick={() => {
-        props.handleClick(props.video);
-      }}
-    >
-      <img
-        className="next-video__image"
-        src={props.video.image}
-        alt="Video screenshot"
-      ></img>
-      <section className="next-video__details">
-        {/* ellipses code */}
-        {title()}
-        <p className="next-video__channel">{props.video.channel}</p>
-      </section>
+    // <li
+    //   className="next-video"
+    //   key={props.key}
+    //   onClick={() => {
+    //     props.handleClick(props.video);
+    //   }}
+    // >
+    <li className="next-video" key={props.key}>
+      {/* add link to each video panel */}
+      <Link to={`/videos/${props.video.id}`}>
+        <img
+          className="next-video__image"
+          src={props.video.image}
+          alt="Video screenshot"
+        ></img>
+        <section className="next-video__details">
+          {/* ellipses code */}
+          {title()}
+          <p className="next-video__channel">{props.video.channel}</p>
+        </section>
+      </Link>
     </li>
   );
 }
