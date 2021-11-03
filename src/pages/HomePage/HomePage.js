@@ -6,43 +6,53 @@ import CommentsSection from "../../components/CommentsSection/CommentsSection";
 import NextVideoSection from "../../components/NextVideoSection/NextVideoSection";
 import "./HomePage.scss";
 import { Component } from "react";
-import data from "../../data/video-details.json";
+import axios from "axios";
+
+const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
+const API_URL = "https://project-2-api.herokuapp.com/";
 
 export default class HomePage extends Component {
   //videos holds array of video objects, featured holds the video displayed in the hero video section
   state = {
-    videos: data,
-    featured: data[0],
+    videos: [],
+    featured: null,
   };
 
-  // componentDidMount() {
-  //   mockAPI.getVideos.then(videosData => {
-  //     this.setState({videos: videosData, featured: videosData[0]})
-  // })
-  // }
+  componentDidMount() {
+    axios
+      .get(`${API_URL}videos/${API_KEY}`)
+      .then((res) => {
+        this.setState({ videos: res.data });
+        return axios.get(`${API_URL}videos/${res.data[0].id}/${API_KEY}`);
+      })
+      .then((res) => {
+        this.setState({ featured: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   componentDidUpdate(prevProps, prevState) {
     const prevVidId = prevProps.match.params.id;
     const vidId = this.props.match.params.id;
     if (prevVidId !== vidId) {
-      this.setState({
-        featured: this.state.videos.find((video) => {
-          return video.id == vidId;
-        }),
-      });
+      axios
+        .get(`${API_URL}videos/${vidId}/${API_KEY}`)
+        .then((res) => {
+          this.setState({
+            featured: res.data,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
-
-  // //passed to side video elements, updates featured video when a side video element is clicked
-  // handleClick = (videoObj) => {
-  //   const videosCopy = [...this.state.videos];
-  //   const index = videosCopy.findIndex((video) => {
-  //     return video.id === videoObj.id;
-  //   });
-  //   this.setState({ featured: videosCopy[index] });
-  // };
   render() {
-    if (this.state.featured === null) return <p>Loading...</p>;
+    if (this.state.featured === null) {
+      return <p>Loading...</p>;
+    }
     return (
       <div>
         <VideoViewer video={this.state.featured} />
@@ -50,13 +60,8 @@ export default class HomePage extends Component {
           <div className="HomePage__video-details">
             <VideoDesc video={this.state.featured} />
             <CommentsForm />
-            <CommentsSection video={this.state.featured} />
+            <CommentsSection comments={this.state.featured.comments} />
           </div>
-          {/* <NextVideoSection
-            videos={this.state.videos}
-            featured={this.state.featured}
-            handleClick={this.handleClick}
-          /> */}
           <NextVideoSection
             videos={this.state.videos}
             featured={this.state.featured}

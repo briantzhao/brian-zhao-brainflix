@@ -7,7 +7,12 @@ import uploadThumb from "../../assets/images/upload.jpg";
 
 export default function UploadForm() {
   return (
-    <form className="upload-form">
+    <form
+      className="upload-form"
+      onSubmit={(event) => {
+        event.preventDefault();
+      }}
+    >
       {/* article to separate input section from buttons */}
       <article className="upload-form__input">
         <label className="upload-form__thumbnail__label">

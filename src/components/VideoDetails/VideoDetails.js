@@ -1,7 +1,7 @@
 import viewIcon from "../../assets/icons/views.svg";
 import likesIcon from "../../assets/icons/likes.svg";
 import "./VideoDetails.scss";
-import { formatDate, deepDive } from "../../utils/FormatDate";
+import { deepDive } from "../../utils/FormatDate";
 
 //passed featured video object channel, timestamp, views, likes as props
 export default function VideoDetails(props) {

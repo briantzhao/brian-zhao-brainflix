@@ -11,14 +11,7 @@ export default function NextVideoSection(props) {
         {props.videos
           .filter((video) => video.id !== props.featured.id)
           .map((video) => {
-            return (
-              // <NextVideo
-              //   key={video.id}
-              //   video={video}
-              //   handleClick={props.handleClick}
-              // />
-              <NextVideo key={video.id} video={video} />
-            );
+            return <NextVideo key={video.id} video={video} />;
           })}
       </ul>
     </section>

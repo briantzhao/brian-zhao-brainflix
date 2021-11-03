@@ -13,7 +13,7 @@ export default function VideoDesc(props) {
         timestamp={props.video.timestamp}
         likes={props.video.likes}
       />
-      <p class="video-desc__description">{props.video.description}</p>
+      <p className="video-desc__description">{props.video.description}</p>
       <h3 className="video-desc__comments">
         {props.video.comments.length} Comments
       </h3>

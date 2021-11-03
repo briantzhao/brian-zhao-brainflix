@@ -5,7 +5,13 @@ import "./CommentsForm.scss";
 
 export default function CommentsForm() {
   return (
-    <form className="comment-form" name="form">
+    <form
+      className="comment-form"
+      name="form"
+      onSubmit={(event) => {
+        event.preventDefault();
+      }}
+    >
       <div className="comment-form__profile">
         <ProfilePic />
       </div>

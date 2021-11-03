@@ -51,14 +51,7 @@ export default function NextVideo(props) {
   };
 
   return (
-    // <li
-    //   className="next-video"
-    //   key={props.key}
-    //   onClick={() => {
-    //     props.handleClick(props.video);
-    //   }}
-    // >
-    <li className="next-video" key={props.key}>
+    <li className="next-video">
       {/* add link to each video panel */}
       <Link to={`/videos/${props.video.id}`}>
         <img
