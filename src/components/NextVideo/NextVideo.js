@@ -2,12 +2,12 @@ import "./NextVideo.scss";
 import { Link } from "react-router-dom";
 
 //individual video objects passed as props
-export default function NextVideo(props) {
+export default function NextVideo({ video }) {
   // ellipses code ensures that ellipses are applies to certain titles in mobile view and are removed in tablet view
   // I wrote this before asking if it was required, and I want to showcase my hard work! Please don't mark me down for this :(
   const title = () => {
     // check id of video for specific videos then provide tags for 2 titles (mobile and tablet)
-    switch (props.video.id) {
+    switch (video.id) {
       case "25ce5d91-a262-4dcf-bb87-42b87546bcfa":
         return (
           <>
@@ -46,23 +46,23 @@ export default function NextVideo(props) {
 
       //default case: return standard title
       default:
-        return <h3 className="next-video__title">{props.video.title}</h3>;
+        return <h3 className="next-video__title">{video.title}</h3>;
     }
   };
 
   return (
     <li className="next-video">
       {/* add link to each video panel */}
-      <Link to={`/videos/${props.video.id}`}>
+      <Link to={`/videos/${video.id}`}>
         <img
           className="next-video__image"
-          src={props.video.image}
+          src={video.image}
           alt="Video screenshot"
         ></img>
         <section className="next-video__details">
           {/* ellipses code */}
           {title()}
-          <p className="next-video__channel">{props.video.channel}</p>
+          <p className="next-video__channel">{video.channel}</p>
         </section>
       </Link>
     </li>

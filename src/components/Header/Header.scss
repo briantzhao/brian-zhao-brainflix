@@ -5,8 +5,9 @@
     margin: 1rem;
     @include tablet {
       display: flex;
-      margin: 1.5rem 2.25rem;
+      margin: 0 2.25rem;
       justify-content: space-between;
+      align-items: center;
     }
     @include desktop {
       width: 63.75rem;

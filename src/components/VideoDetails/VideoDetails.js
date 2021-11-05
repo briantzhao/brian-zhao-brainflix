@@ -4,14 +4,12 @@ import "./VideoDetails.scss";
 import { deepDive } from "../../utils/FormatDate";
 
 //passed featured video object channel, timestamp, views, likes as props
-export default function VideoDetails(props) {
+export default function VideoDetails({ timestamp, views, likes, channel }) {
   return (
     <article className="video-details">
       <div className="video-details__header">
-        <h3 className="video-details__channel">By {props.channel}</h3>
-        <h4 className="video-details__timestamp">
-          {deepDive(props.timestamp)}
-        </h4>
+        <h3 className="video-details__channel">By {channel}</h3>
+        <h4 className="video-details__timestamp">{deepDive(timestamp)}</h4>
       </div>
       <div className="video-details__stats">
         <h4 className="video-details__views">
@@ -20,7 +18,7 @@ export default function VideoDetails(props) {
             src={viewIcon}
             alt="views"
           ></img>
-          {props.views}
+          {views}
         </h4>
         <h4 className="video-details__likes">
           <img
@@ -28,7 +26,7 @@ export default function VideoDetails(props) {
             src={likesIcon}
             alt="likes"
           ></img>
-          {props.likes}
+          {likes}
         </h4>
       </div>
     </article>
