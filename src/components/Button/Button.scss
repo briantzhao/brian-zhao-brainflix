@@ -14,6 +14,8 @@
 
   @include tablet {
     margin-top: 0;
+    width: 9.375rem;
+    padding: auto 2rem;
   }
 
   //apply color change on hove, and change cursor to pointer
@@ -30,10 +32,5 @@
     @include tablet {
       left: 0.5rem;
     }
-  }
-
-  @include tablet {
-    width: 9.375rem;
-    padding: auto 2rem;
   }
 }

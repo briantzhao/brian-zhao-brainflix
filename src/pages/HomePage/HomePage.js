@@ -16,6 +16,7 @@ export default class HomePage extends Component {
   state = {
     videos: [],
     featured: null,
+    newComments: [],
   };
 
   componentDidMount() {
@@ -23,10 +24,7 @@ export default class HomePage extends Component {
       .get(`${API_URL}videos/${API_KEY}`)
       .then((res) => {
         this.setState({ videos: res.data });
-        return axios.get(`${API_URL}videos/${res.data[0].id}/${API_KEY}`);
-      })
-      .then((res) => {
-        this.setState({ featured: res.data });
+        this.updateVideo(res.data[0].id);
       })
       .catch((err) => {
         console.log(err);
@@ -37,18 +35,35 @@ export default class HomePage extends Component {
     const prevVidId = prevProps.match.params.id;
     const vidId = this.props.match.params.id;
     if (prevVidId !== vidId) {
-      axios
-        .get(`${API_URL}videos/${vidId}/${API_KEY}`)
-        .then((res) => {
-          this.setState({
-            featured: res.data,
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      this.updateVideo(vidId);
     }
   }
+
+  updateVideo = (vidId) => {
+    axios
+      .get(`${API_URL}videos/${vidId}/${API_KEY}`)
+      .then((res) => {
+        this.setState({ featured: res.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  updateNewComms = (commId, del) => {
+    let newCommCopy = [...this.state.newComments];
+    if (del) {
+      const index = newCommCopy.findIndex((id) => id === commId);
+      if (index >= 0) {
+        newCommCopy.splice(index, 1);
+      }
+      this.setState({ newComments: newCommCopy });
+    } else {
+      newCommCopy.push(commId);
+      this.setState({ newComments: newCommCopy });
+    }
+  };
+
   render() {
     if (this.state.featured === null) {
       return <p>Loading...</p>;
@@ -59,8 +74,17 @@ export default class HomePage extends Component {
         <main className="HomePage__main-section">
           <div className="HomePage__video-details">
             <VideoDesc video={this.state.featured} />
-            <CommentsForm />
-            <CommentsSection comments={this.state.featured.comments} />
+            <CommentsForm
+              id={this.state.featured.id}
+              update={this.updateVideo}
+              updateComm={this.updateNewComms}
+            />
+            <CommentsSection
+              video={this.state.featured}
+              update={this.updateVideo}
+              updateComm={this.updateNewComms}
+              newComms={this.state.newComments}
+            />
           </div>
           <NextVideoSection
             videos={this.state.videos}
