@@ -16,7 +16,7 @@ export default class HomePage extends Component {
   state = {
     videos: [],
     featured: null,
-    newComments: [],
+    newComments: [], //holds list of comments that were user-generated, so that I can apply the profile picture to the comments later
   };
 
   componentDidMount() {
@@ -24,14 +24,18 @@ export default class HomePage extends Component {
       .get(`${API_URL}videos/${API_KEY}`)
       .then((res) => {
         this.setState({ videos: res.data });
-        this.updateVideo(res.data[0].id);
+        //check if the user is refreshing on a specific video. if not, use the default
+        this.props.match.params.id
+          ? this.updateVideo(this.props.match.params.id)
+          : this.updateVideo(res.data[0].id);
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  //update featured video if url has changed
+  componentDidUpdate(prevProps) {
     const prevVidId = prevProps.match.params.id;
     const vidId = this.props.match.params.id;
     if (prevVidId !== vidId) {
@@ -39,6 +43,7 @@ export default class HomePage extends Component {
     }
   }
 
+  //function to call for new hero video information (also refreshes for comment addition/deletion)
   updateVideo = (vidId) => {
     axios
       .get(`${API_URL}videos/${vidId}/${API_KEY}`)
@@ -50,6 +55,7 @@ export default class HomePage extends Component {
       });
   };
 
+  //function to add/delete comment ID's to newComments state for user-generated comments
   updateNewComms = (commId, del) => {
     let newCommCopy = [...this.state.newComments];
     if (del) {
@@ -65,6 +71,7 @@ export default class HomePage extends Component {
   };
 
   render() {
+    //render loading screen before axios call
     if (this.state.featured === null) {
       return <p>Loading...</p>;
     }
@@ -74,11 +81,13 @@ export default class HomePage extends Component {
         <main className="HomePage__main-section">
           <div className="HomePage__video-details">
             <VideoDesc video={this.state.featured} />
+            {/* passes id for comment post call, update to call for new comments list, and updateComm to add new comment id to newComments state */}
             <CommentsForm
               id={this.state.featured.id}
               update={this.updateVideo}
               updateComm={this.updateNewComms}
             />
+            {/* passes update to call for new comments list, updateComm to delete comment id from newComments state, and newComms to check which comment ID's have profile pics */}
             <CommentsSection
               video={this.state.featured}
               update={this.updateVideo}
@@ -86,6 +95,7 @@ export default class HomePage extends Component {
               newComms={this.state.newComments}
             />
           </div>
+          {/* passes featured so that the hero video can be filtered out */}
           <NextVideoSection
             videos={this.state.videos}
             featured={this.state.featured}

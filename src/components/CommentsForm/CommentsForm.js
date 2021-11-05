@@ -8,16 +8,20 @@ import axios from "axios";
 const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
 const API_URL = "https://project-2-api.herokuapp.com/";
 
+//using state-based form
 export default class CommentsForm extends Component {
   state = {
     name: "BrainStation Man",
     comment: "",
   };
 
+  //set new state whenever someone types into field
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  //check for non-empty comment, then do axios call when comment is submitted
+  //update comments list and update list of user-generated comments
   handleSubmit = (event) => {
     event.preventDefault();
     if (!this.state.comment) {
@@ -48,6 +52,7 @@ export default class CommentsForm extends Component {
         <section className="comment-form__text">
           <label className="comment-form__title">
             JOIN THE CONVERSATION
+            {/* set value to state */}
             <textarea
               className="comment-form__input"
               placeholder="Add a new comment"

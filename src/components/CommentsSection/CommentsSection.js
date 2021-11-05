@@ -1,7 +1,8 @@
 import Comment from "../Comment/Comment";
 import "./CommentsSection.scss";
 
-//passed featured video object as props
+//passed "video" as featured video, "update" as axios call to update hero information,
+//"updateComm" to delete ID's from user-generated comments list, and "newComms" as a list of user-generated comment ID's
 export default function CommentsSection({
   video,
   update,

@@ -6,7 +6,8 @@ import ProfilePic from "../ProfilePic/ProfilePic";
 const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
 const API_URL = "https://project-2-api.herokuapp.com/";
 
-//passed individual comment objects as props
+//passed "comment" for comment info, "vidId" for id of featured video, update for axios-get call for video details update,
+//updateComm to delete comments, and newComms to find comments that need profile pictures
 export default function Comment({
   comment,
   vidId,
@@ -14,6 +15,7 @@ export default function Comment({
   updateComm,
   newComms,
 }) {
+  //function to do axios call to delete comment, update newComments state, and update comments list
   const deleteComment = () => {
     axios
       .delete(`${API_URL}videos/${vidId}/comments/${comment.id}/${API_KEY}`)
@@ -28,6 +30,7 @@ export default function Comment({
   return (
     <li className="comment">
       <section className="comment__left">
+        {/* check if comment is a user-generated comment: if so, display profilepic, otherwise show gray circle */}
         {newComms.findIndex((id) => id === comment.id) >= 0 ? (
           <ProfilePic />
         ) : (
