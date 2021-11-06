@@ -2,7 +2,9 @@
 
 # Description
 
-Sprint 1 The purpose of this project is to practice building a website using React, as well as practice passing props and maintaining state.
+Sprint 1: The purpose of this project is to practice building a website using React, as well as practice passing props and maintaining state.
+
+Sprint 2: The purpose of this project is to practice link redirection with React Router and integrating API calls into lifecycle methods, as well as practice implementing state-based forms.
 
 ## Usage
 
