@@ -33,9 +33,9 @@ export default class CommentsForm extends Component {
         name: this.state.name,
         comment: this.state.comment,
       })
-      .then((res) => {
+      .then(({ data }) => {
         this.props.update(this.props.id);
-        this.props.updateComm(res.data.id);
+        this.props.updateComm(data.id);
         this.setState({ comment: "" });
       })
       .catch((err) => {

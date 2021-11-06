@@ -22,12 +22,12 @@ export default class HomePage extends Component {
   componentDidMount() {
     axios
       .get(`${API_URL}videos/${API_KEY}`)
-      .then((res) => {
-        this.setState({ videos: res.data });
+      .then(({ data }) => {
+        this.setState({ videos: data });
         //check if the user is refreshing on a specific video. if not, use the default
         this.props.match.params.id
           ? this.updateVideo(this.props.match.params.id)
-          : this.updateVideo(res.data[0].id);
+          : this.updateVideo(data[0].id);
       })
       .catch((err) => {
         console.log(err);
@@ -35,8 +35,8 @@ export default class HomePage extends Component {
   }
 
   //update featured video if url has changed
-  componentDidUpdate(prevProps) {
-    const prevVidId = prevProps.match.params.id;
+  componentDidUpdate({ match }) {
+    const prevVidId = match.params.id;
     const vidId = this.props.match.params.id;
     if (prevVidId !== vidId) {
       this.updateVideo(vidId);
@@ -47,8 +47,8 @@ export default class HomePage extends Component {
   updateVideo = (vidId) => {
     axios
       .get(`${API_URL}videos/${vidId}/${API_KEY}`)
-      .then((res) => {
-        this.setState({ featured: res.data });
+      .then(({ data }) => {
+        this.setState({ featured: data });
       })
       .catch((err) => {
         console.log(err);
@@ -72,7 +72,7 @@ export default class HomePage extends Component {
 
   render() {
     //render loading screen before axios call
-    if (this.state.featured === null) {
+    if (this.state.featured === null || this.state.videos.length === 0) {
       return <p>Loading...</p>;
     }
     return (

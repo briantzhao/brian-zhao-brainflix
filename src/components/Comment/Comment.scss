@@ -61,6 +61,7 @@
       margin-bottom: 0;
     }
   }
+
   &__styling {
     display: flex;
     flex-direction: column;
@@ -69,10 +70,13 @@
       justify-content: space-between;
     }
   }
+
   &__comment {
     text-align: left;
     margin-top: 0;
     margin-bottom: 0;
+
+    //max-width provides room for delete button
     @include tablet {
       flex-grow: 1;
       max-width: 30rem;
@@ -81,6 +85,8 @@
       max-width: 27rem;
     }
   }
+
+  //delete button styling (looks like button but wanted to add specific onclick)
   &__delete {
     position: relative;
     background-color: $blue;
@@ -97,7 +103,7 @@
       padding: auto 2rem;
     }
 
-    //apply color change on hove, and change cursor to pointer
+    //apply color change on hover, and change cursor to pointer
     &:hover {
       background-color: $darkblue;
       cursor: pointer;
