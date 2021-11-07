@@ -20,6 +20,7 @@ export default class HomePage extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.match.params.id);
     axios
       .get(`${API_URL}videos/${API_KEY}`)
       .then(({ data }) => {
@@ -39,6 +40,10 @@ export default class HomePage extends Component {
     const prevVidId = match.params.id;
     const vidId = this.props.match.params.id;
     if (prevVidId !== vidId) {
+      if (vidId === undefined) {
+        this.updateVideo(this.state.videos[0].id);
+        return;
+      }
       this.updateVideo(vidId);
     }
   }
