@@ -4,6 +4,8 @@ import "./Button.scss";
 export default function Button({ text, icon }) {
   return (
     //if the button is the PUBLISH button, then add an on-click that sends alert
+    // if the form onSubmit sets the alert, it doesn't run before the page redirect
+
     <button
       className="button"
       onClick={() =>

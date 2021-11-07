@@ -7,6 +7,7 @@ import uploadThumb from "../../assets/images/upload.jpg";
 
 export default function UploadForm() {
   return (
+    // if the onSubmit sets the alert, it doesn't run before the page redirect
     <form
       className="upload-form"
       onSubmit={(event) => {

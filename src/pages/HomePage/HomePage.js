@@ -20,7 +20,6 @@ export default class HomePage extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.match.params.id);
     axios
       .get(`${API_URL}videos/${API_KEY}`)
       .then(({ data }) => {
