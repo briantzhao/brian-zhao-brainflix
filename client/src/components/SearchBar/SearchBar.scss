@@ -1,0 +1,22 @@
+@use "../../styles/partials/_mixins.scss" as *;
+@use "../../styles/partials/variables" as *;
+
+.search-bar {
+  background: url("../../assets/icons/search.svg") 0.5rem center no-repeat;
+  padding-left: 2rem;
+  height: 2.25rem;
+  width: 85%;
+  border-radius: 4px;
+  background-color: $alabaster;
+  color: $black;
+  outline: none;
+  border: 1px solid $mercury;
+  &:focus {
+    border: 2px solid $blue;
+  }
+
+  @include tablet {
+    width: 15rem;
+    height: 2.5rem;
+  }
+}

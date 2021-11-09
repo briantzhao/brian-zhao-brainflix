@@ -1,0 +1,25 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.video-viewer {
+  background-color: $darkblack;
+
+  //use calc to remove margin from full width
+  &__video {
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+    max-height: 11rem;
+
+    @include tablet {
+      margin: 0 2.25rem;
+      width: calc(100% - 4.5rem);
+      max-height: 25rem;
+    }
+
+    @include desktop {
+      width: 53rem;
+      margin: 0 auto;
+      max-height: 30rem;
+    }
+  }
+}

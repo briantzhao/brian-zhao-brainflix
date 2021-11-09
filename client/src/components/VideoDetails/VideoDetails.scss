@@ -1,0 +1,48 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.video-details {
+  display: flex;
+  gap: 20%;
+  border-top: 1px solid $mercury;
+  border-bottom: 1px solid $mercury;
+
+  @include tablet {
+    border-top: 0px;
+  }
+
+  @include desktop {
+    padding-right: 1.5rem;
+  }
+
+  &__header,
+  &__stats {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      width: 50%;
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  &__stats {
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__channel,
+  &__timestamp,
+  &__views,
+  &__likes {
+    margin: 0.5rem 0;
+    text-align: left;
+  }
+
+  &__views-icon,
+  &__likes-icon {
+    margin-right: 0.5rem;
+  }
+}
