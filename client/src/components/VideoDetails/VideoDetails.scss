@@ -2,26 +2,42 @@
 @use "../../styles/partials/variables" as *;
 
 .video-details {
-  display: flex;
-  gap: 20%;
   border-top: 1px solid $mercury;
   border-bottom: 1px solid $mercury;
-
+  padding-bottom: 1.5rem;
   @include tablet {
     border-top: 0px;
+    text-align: right;
   }
+  &__main {
+    display: flex;
+    gap: 20%;
 
-  @include desktop {
-    padding-right: 1.5rem;
+    @include tablet {
+      border-top: 0px;
+      gap: 0;
+    }
+
+    @include desktop {
+      padding-right: 1.5rem;
+    }
   }
+  &__header {
+    display: flex;
+    flex-direction: column;
 
-  &__header,
+    @include tablet {
+      width: 40%;
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
   &__stats {
     display: flex;
     flex-direction: column;
 
     @include tablet {
-      width: 50%;
+      width: 60%;
       flex-direction: row;
       gap: 2rem;
     }
@@ -44,5 +60,26 @@
   &__views-icon,
   &__likes-icon {
     margin-right: 0.5rem;
+  }
+  &__likes-button {
+    background-color: $blue;
+    color: $white;
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-top: 1rem;
+    border: none;
+    @include tablet {
+      margin-top: 0;
+      width: 9.375rem;
+      padding: auto 2rem;
+    }
+
+    //apply color change on hover, and change cursor to pointer
+    &:hover {
+      background-color: $darkblue;
+      cursor: pointer;
+    }
   }
 }

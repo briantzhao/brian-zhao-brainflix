@@ -1,3 +1,4 @@
+require("dotenv").config();
 const uniqid = require("uniqid");
 const express = require("express");
 const app = express();
@@ -5,7 +6,7 @@ const fs = require("fs");
 const cors = require("cors");
 const videosRoutes = require("./routes/videosRoutes");
 
-const port = 8080;
+const port = process.env.PORT || 8000;
 
 app.use(cors());
 

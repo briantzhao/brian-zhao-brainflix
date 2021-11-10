@@ -17,11 +17,37 @@ To download this project and view it locally, run the following commands in your
 
 Then, follow instructions below.
 
+# Server-Side Setup
+
+Run the following commands:
+
+```bash
+cd server
+cp .env.sample .env
+npm install
+cd ..
+```
+
+To start the server:
+
+```bash
+cd server
+node index.js
+```
+
 # Getting Started with Create React App
 
 This client was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+
+Access and initialize the client directory by running the following:
+
+```bash
+cd client
+npm install
+cd..
+```
 
 In the client directory, you can run:
 

@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const uniqid = require("uniqid");
-const vidViews = 9001;
-const vidLikes = 7373;
+const vidViews = "9,001";
+const vidLikes = "7,373";
 const vidDuration = "6:30";
 const vidChannel = "WildMudkip";
 const vidVideo = "https://project-2-api.herokuapp.com/stream";
@@ -153,7 +153,10 @@ router.put("/:videoId/likes", (req, res) => {
     return video.id === req.params.videoId;
   });
   if (videoIndex >= 0) {
-    videoData[videoIndex].likes = videoData[videoIndex].likes + 1;
+    let newLikes =
+      parseInt(videoData[videoIndex].likes.split(",").join("")) + 1;
+    newLikes = newLikes.toLocaleString("en-US");
+    videoData[videoIndex].likes = newLikes;
     postVideoData(videoData);
     res.json(videoData[videoIndex]);
   } else {

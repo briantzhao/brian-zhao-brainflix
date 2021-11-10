@@ -3,7 +3,7 @@ import VideoDetails from "../VideoDetails/VideoDetails";
 import "./VideoDesc.scss";
 
 //passed featured video object as props
-export default function VideoDesc({ video }) {
+export default function VideoDesc({ video, handleLike }) {
   return (
     <section className="video-desc">
       <VideoTitle text={video.title} />
@@ -12,6 +12,8 @@ export default function VideoDesc({ video }) {
         views={video.views}
         timestamp={video.timestamp}
         likes={video.likes}
+        handleLike={handleLike}
+        id={video.id}
       />
       <p className="video-desc__description">{video.description}</p>
       <h3 className="video-desc__comments">{video.comments.length} Comments</h3>

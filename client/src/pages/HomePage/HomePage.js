@@ -21,18 +21,6 @@ export default class HomePage extends Component {
   };
 
   componentDidMount() {
-    // axios
-    //   .get(`${API_URL}videos/${API_KEY}`)
-    //   .then(({ data }) => {
-    //     this.setState({ videos: data });
-    //     //check if the user is refreshing on a specific video. if not, use the default
-    //     this.props.match.params.id
-    //       ? this.updateVideo(this.props.match.params.id)
-    //       : this.updateVideo(data[0].id);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
     axios
       .get(`${API_URL}videos/`)
       .then(({ data }) => {
@@ -95,6 +83,18 @@ export default class HomePage extends Component {
     }
   };
 
+  //updates video likes
+  handleLike = (id) => {
+    axios
+      .put(`${API_URL}videos/${id}/likes`)
+      .then(({ data }) => {
+        this.setState({ featured: data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
     //render loading screen before axios call
     if (this.state.featured === null || this.state.videos.length === 0) {
@@ -105,7 +105,10 @@ export default class HomePage extends Component {
         <VideoViewer video={this.state.featured} />
         <main className="HomePage__main-section">
           <div className="HomePage__video-details">
-            <VideoDesc video={this.state.featured} />
+            <VideoDesc
+              video={this.state.featured}
+              handleLike={this.handleLike}
+            />
             {/* passes id for comment post call, update to call for new comments list, and updateComm to add new comment id to newComments state */}
             <CommentsForm
               id={this.state.featured.id}
