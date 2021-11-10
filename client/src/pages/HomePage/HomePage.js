@@ -8,8 +8,9 @@ import "./HomePage.scss";
 import { Component } from "react";
 import axios from "axios";
 
-const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
-const API_URL = "https://project-2-api.herokuapp.com/";
+// const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
+// const API_URL = "https://project-2-api.herokuapp.com/";
+const API_URL = "http://localhost:8080/";
 
 export default class HomePage extends Component {
   //videos holds array of video objects, featured holds the video displayed in the hero video section
@@ -20,8 +21,20 @@ export default class HomePage extends Component {
   };
 
   componentDidMount() {
+    // axios
+    //   .get(`${API_URL}videos/${API_KEY}`)
+    //   .then(({ data }) => {
+    //     this.setState({ videos: data });
+    //     //check if the user is refreshing on a specific video. if not, use the default
+    //     this.props.match.params.id
+    //       ? this.updateVideo(this.props.match.params.id)
+    //       : this.updateVideo(data[0].id);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     axios
-      .get(`${API_URL}videos/${API_KEY}`)
+      .get(`${API_URL}videos/`)
       .then(({ data }) => {
         this.setState({ videos: data });
         //check if the user is refreshing on a specific video. if not, use the default
@@ -49,8 +62,16 @@ export default class HomePage extends Component {
 
   //function to call for new hero video information (also refreshes for comment addition/deletion)
   updateVideo = (vidId) => {
+    // axios
+    //   .get(`${API_URL}videos/${vidId}/${API_KEY}`)
+    //   .then(({ data }) => {
+    //     this.setState({ featured: data });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     axios
-      .get(`${API_URL}videos/${vidId}/${API_KEY}`)
+      .get(`${API_URL}videos/${vidId}/`)
       .then(({ data }) => {
         this.setState({ featured: data });
       })

@@ -5,8 +5,9 @@ import "./CommentsForm.scss";
 import { Component } from "react";
 import axios from "axios";
 
-const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
-const API_URL = "https://project-2-api.herokuapp.com/";
+// const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
+// const API_URL = "https://project-2-api.herokuapp.com/";
+const API_URL = "http://localhost:8080/";
 
 //using state-based form
 export default class CommentsForm extends Component {
@@ -28,8 +29,21 @@ export default class CommentsForm extends Component {
       alert("Please submit a valid comment");
       return;
     }
+    // axios
+    //   .post(`${API_URL}videos/${this.props.id}/comments/${API_KEY}`, {
+    //     name: this.state.name,
+    //     comment: this.state.comment,
+    //   })
+    //   .then(({ data }) => {
+    //     this.props.update(this.props.id);
+    //     this.props.updateComm(data.id);
+    //     this.setState({ comment: "" });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     axios
-      .post(`${API_URL}videos/${this.props.id}/comments/${API_KEY}`, {
+      .post(`${API_URL}videos/${this.props.id}/comments/`, {
         name: this.state.name,
         comment: this.state.comment,
       })
