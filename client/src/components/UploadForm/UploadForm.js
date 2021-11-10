@@ -20,6 +20,14 @@ class UploadForm extends Component {
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+    if (event.target.name === "image") {
+      this.setState({ published: true });
+    }
+  };
+
+  handleImage = (event) => {
+    console.log(event.target.files[0]);
+    this.setState({ image: event.target.files[0], published: true });
   };
 
   componentDidMount() {
@@ -35,13 +43,15 @@ class UploadForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (!(this.state.title && this.state.description && this.state.uploadImg)) {
-      alert("Please submit a title and description");
+    if (!(this.state.title && this.state.description && this.state.image)) {
+      alert("Please submit an upload image, a title, and description");
       return;
     }
+    let sentImage = URL.createObjectURL(this.state.image);
     axios
       .post(`${API_URL}videos/`, {
-        image: URL.createObjectURL(this.state.uploadImg),
+        //image: uploadThumb,
+        image: sentImage,
         title: this.state.title,
         description: this.state.description,
       })
@@ -66,7 +76,10 @@ class UploadForm extends Component {
             VIDEO THUMBNAIL
             <img
               className="upload-form__thumbnail"
-              src={URL.createObjectURL(this.state.uploadImg)}
+              // src={uploadThumb}
+              src={URL.createObjectURL(
+                this.state.published ? this.state.image : this.state.uploadImg
+              )}
               alt="video thumbnail"
             ></img>
             <input
@@ -74,8 +87,7 @@ class UploadForm extends Component {
               type="file"
               placeholder={uploadThumb}
               name="image"
-              onChange={this.handleChange}
-              value={this.state.image}
+              onChange={this.handleImage}
             ></input>
           </label>
           {/* section to apply flex to text inputs for desktop view*/}
