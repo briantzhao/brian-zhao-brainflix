@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.upload-form {
+.upload-page__form {
   display: flex;
   flex-direction: column;
   gap: 1rem;

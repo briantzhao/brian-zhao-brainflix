@@ -3,8 +3,6 @@ import { deepDive } from "../../utils/FormatDate";
 import axios from "axios";
 import ProfilePic from "../ProfilePic/ProfilePic";
 
-// const API_KEY = "?api_key=b8bd0af8-a965-46bf-b7eb-0e912afcac3d";
-// const API_URL = "https://project-2-api.herokuapp.com/";
 const API_URL = "http://localhost:8080/";
 
 //passed "comment" for comment info, "vidId" for id of featured video, update for axios-get call for video details update,

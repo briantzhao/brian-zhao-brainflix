@@ -3,7 +3,8 @@ import likesIcon from "../../assets/icons/likes.svg";
 import "./VideoDetails.scss";
 import { deepDive } from "../../utils/FormatDate";
 
-//passed featured video object channel, timestamp, views, likes as props
+//passed featured video object channel, timestamp, views, likes as props,
+//as well as handleLike and video id to provide axios.put like functionality
 export default function VideoDetails({
   timestamp,
   views,
@@ -38,6 +39,7 @@ export default function VideoDetails({
           </h4>
         </div>
       </section>
+      {/* like button that sents put request to server */}
       <button
         className="video-details__likes-button"
         onClick={() => {
