@@ -16,15 +16,6 @@ export default function Comment({
 }) {
   //function to do axios call to delete comment, update newComments state, and update comments list
   const deleteComment = () => {
-    // axios
-    //   .delete(`${API_URL}videos/${vidId}/comments/${comment.id}/${API_KEY}`)
-    //   .then(() => {
-    //     update(vidId);
-    //     updateComm(vidId, true);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
     axios
       .delete(`${API_URL}videos/${vidId}/comments/${comment.id}/`)
       .then(() => {

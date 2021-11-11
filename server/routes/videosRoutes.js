@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const uniqid = require("uniqid");
+
+//default settings for new videos being uploaded
 const vidViews = "9,001";
 const vidLikes = "7,373";
 const vidDuration = "6:30";
@@ -34,8 +36,10 @@ const vidComments = [
   },
 ];
 
+//array to hold data read from videos.json
 let videoData = [];
 
+//function to populate videoData with data from videos.json
 const getVideoData = () => {
   fs.readFile("./data/videos.json", (err, data) => {
     if (err) {
@@ -46,6 +50,7 @@ const getVideoData = () => {
   });
 };
 
+//function to update videos.json
 const postVideoData = (videos) => {
   fs.writeFile("./data/videos.json", JSON.stringify(videos), (err) => {
     if (err) {
@@ -54,13 +59,16 @@ const postVideoData = (videos) => {
   });
 };
 
+//invoke getVideoData to initialize videoData array
 getVideoData();
 
-router.get("/", (req, res) => {
+//base get route that provides full array of videos
+router.get("/", (_req, res) => {
   getVideoData();
   res.json(videoData);
 });
 
+//get route that provides hero video information
 router.get("/:id", (req, res) => {
   let video = videoData.find((video) => {
     return video.id === req.params.id;
@@ -72,10 +80,12 @@ router.get("/:id", (req, res) => {
   }
 });
 
+//post route that adds new video to videoData array, and then writes to videos.json
 router.post("/", (req, res) => {
-  console.log(req.body);
   let videos = videoData;
   const { image, title, description } = req.body;
+
+  //check that req body is properly filled out and create new video object if so
   if (image && title && description) {
     const newVideo = {
       image,
@@ -92,22 +102,25 @@ router.post("/", (req, res) => {
     };
     videos.push(newVideo);
     videoData = videos;
-    postVideoData(videos);
+    postVideoData(videoData);
     res.status(201).json(newVideo);
   } else {
     res.status(500).send("Video not created.");
   }
 });
 
+//post route that adds new comment to specified video
 router.post("/:id/comments", (req, res) => {
-  console.log(req.params);
   let videoIndex = videoData.findIndex((video) => {
     return video.id === req.params.id;
   });
+
+  //check that video with given id exists
   if (videoIndex < 0) {
     res.status(500).send("Video not found");
   }
 
+  //if name and comment exist, then create new comment and add to videoData array
   const { name, comment } = req.body;
   if (name && comment) {
     const newComment = {
@@ -125,14 +138,19 @@ router.post("/:id/comments", (req, res) => {
   }
 });
 
+//delete route that removes comment from specified video
 router.delete("/:videoId/comments/:commentId", (req, res) => {
   let videoIndex = videoData.findIndex((video) => {
     return video.id === req.params.videoId;
   });
+
+  //check that video was found - if so, find comment to be deleted
   if (videoIndex >= 0) {
     let commentIndex = videoData[videoIndex].comments.findIndex((comment) => {
       return comment.id === req.params.commentId;
     });
+
+    //check that comment was found - if so, splice comment from videoData array and write to file
     if (commentIndex >= 0) {
       const deletedComment = videoData[videoIndex].comments.splice(
         commentIndex,
@@ -148,10 +166,15 @@ router.delete("/:videoId/comments/:commentId", (req, res) => {
   }
 });
 
+//put route that increases video likes value by one
 router.put("/:videoId/likes", (req, res) => {
   let videoIndex = videoData.findIndex((video) => {
     return video.id === req.params.videoId;
   });
+
+  //if video was found, convert likes from string to int, increase by 1, then
+  //convert back to string using toLocaleString to include commas,
+  //then write to file
   if (videoIndex >= 0) {
     let newLikes =
       parseInt(videoData[videoIndex].likes.split(",").join("")) + 1;
