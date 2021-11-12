@@ -75,6 +75,9 @@
       width: 9.375rem;
       padding: auto 2rem;
     }
+    @include desktop {
+      margin-right: 1.5rem;
+    }
 
     //apply color change on hover, and change cursor to pointer
     &:hover {
