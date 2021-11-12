@@ -65,7 +65,16 @@ getVideoData();
 //base get route that provides full array of videos
 router.get("/", (_req, res) => {
   getVideoData();
-  res.json(videoData);
+  //remove extra data to mimic Sprint 2 API
+  const strippedData = videoData.map((video) => {
+    return {
+      id: video.id,
+      title: video.title,
+      image: video.image,
+      channel: video.channel,
+    };
+  });
+  res.json(strippedData);
 });
 
 //get route that provides hero video information
