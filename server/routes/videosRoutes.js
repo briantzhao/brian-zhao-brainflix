@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const uniqid = require("uniqid");
+const http = require("http");
 
 //default settings for new videos being uploaded
 const vidViews = "9,001";
