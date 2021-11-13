@@ -7,6 +7,8 @@ Sprint 1: The purpose of this project is to practice building a website using Re
 Sprint 2: The purpose of this project is to practice link redirection with React Router and integrating API calls into lifecycle methods,
 as well as practice implementing state-based forms and axios put/delete functions.
 
+Sprint 3: The purpose of this project is to practice writing server code using NodeJS and Express, as well as learning how to design client and server functionality in tandem.
+
 ## Usage
 
 To download this project and view it locally, run the following commands in your terminal:
